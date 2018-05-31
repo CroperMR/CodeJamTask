@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		406F2B0220C055C4003F5689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B0120C055C4003F5689 /* AppDelegate.m */; };
+		406F2B0A20C055C5003F5689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406F2B0920C055C5003F5689 /* Assets.xcassets */; };
+		406F2B0D20C055C5003F5689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406F2B0B20C055C5003F5689 /* LaunchScreen.storyboard */; };
+		406F2B1020C055C5003F5689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B0F20C055C5003F5689 /* main.m */; };
+		406F2B1A20C055C5003F5689 /* CodeJamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B1920C055C5003F5689 /* CodeJamTests.m */; };
+		406F2B2520C055C5003F5689 /* CodeJamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B2420C055C5003F5689 /* CodeJamUITests.m */; };
+		406F2B3420C055F0003F5689 /* StartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B3220C055EF003F5689 /* StartController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		406F2B1620C055C5003F5689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 406F2AF520C055C4003F5689 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 406F2AFC20C055C4003F5689;
+			remoteInfo = CodeJam;
+		};
+		406F2B2120C055C5003F5689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 406F2AF520C055C4003F5689 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 406F2AFC20C055C4003F5689;
+			remoteInfo = CodeJam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		406F2AFD20C055C4003F5689 /* CodeJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		406F2B0020C055C4003F5689 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		406F2B0120C055C4003F5689 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		406F2B0920C055C5003F5689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		406F2B0C20C055C5003F5689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		406F2B0E20C055C5003F5689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		406F2B0F20C055C5003F5689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		406F2B1520C055C5003F5689 /* CodeJamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeJamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		406F2B1920C055C5003F5689 /* CodeJamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeJamTests.m; sourceTree = "<group>"; };
+		406F2B1B20C055C5003F5689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		406F2B2020C055C5003F5689 /* CodeJamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeJamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		406F2B2420C055C5003F5689 /* CodeJamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeJamUITests.m; sourceTree = "<group>"; };
+		406F2B2620C055C5003F5689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		406F2B3220C055EF003F5689 /* StartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartController.m; path = ../../../Documents/DEV/WaterPipes/WaterPipes/Controllers/StartController.m; sourceTree = "<group>"; };
+		406F2B3320C055EF003F5689 /* StartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartController.h; path = ../../../Documents/DEV/WaterPipes/WaterPipes/Controllers/StartController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		406F2AFA20C055C4003F5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1220C055C5003F5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1D20C055C5003F5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		406F2AF420C055C4003F5689 = {
+			isa = PBXGroup;
+			children = (
+				406F2AFF20C055C4003F5689 /* CodeJam */,
+				406F2B1820C055C5003F5689 /* CodeJamTests */,
+				406F2B2320C055C5003F5689 /* CodeJamUITests */,
+				406F2AFE20C055C4003F5689 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		406F2AFE20C055C4003F5689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				406F2AFD20C055C4003F5689 /* CodeJam.app */,
+				406F2B1520C055C5003F5689 /* CodeJamTests.xctest */,
+				406F2B2020C055C5003F5689 /* CodeJamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		406F2AFF20C055C4003F5689 /* CodeJam */ = {
+			isa = PBXGroup;
+			children = (
+				406F2B0020C055C4003F5689 /* AppDelegate.h */,
+				406F2B0120C055C4003F5689 /* AppDelegate.m */,
+				406F2B3320C055EF003F5689 /* StartController.h */,
+				406F2B3220C055EF003F5689 /* StartController.m */,
+				406F2B0920C055C5003F5689 /* Assets.xcassets */,
+				406F2B0B20C055C5003F5689 /* LaunchScreen.storyboard */,
+				406F2B0E20C055C5003F5689 /* Info.plist */,
+				406F2B0F20C055C5003F5689 /* main.m */,
+			);
+			path = CodeJam;
+			sourceTree = "<group>";
+		};
+		406F2B1820C055C5003F5689 /* CodeJamTests */ = {
+			isa = PBXGroup;
+			children = (
+				406F2B1920C055C5003F5689 /* CodeJamTests.m */,
+				406F2B1B20C055C5003F5689 /* Info.plist */,
+			);
+			path = CodeJamTests;
+			sourceTree = "<group>";
+		};
+		406F2B2320C055C5003F5689 /* CodeJamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				406F2B2420C055C5003F5689 /* CodeJamUITests.m */,
+				406F2B2620C055C5003F5689 /* Info.plist */,
+			);
+			path = CodeJamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		406F2AFC20C055C4003F5689 /* CodeJam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 406F2B2920C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJam" */;
+			buildPhases = (
+				406F2AF920C055C4003F5689 /* Sources */,
+				406F2AFA20C055C4003F5689 /* Frameworks */,
+				406F2AFB20C055C4003F5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodeJam;
+			productName = CodeJam;
+			productReference = 406F2AFD20C055C4003F5689 /* CodeJam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		406F2B1420C055C5003F5689 /* CodeJamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 406F2B2C20C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJamTests" */;
+			buildPhases = (
+				406F2B1120C055C5003F5689 /* Sources */,
+				406F2B1220C055C5003F5689 /* Frameworks */,
+				406F2B1320C055C5003F5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				406F2B1720C055C5003F5689 /* PBXTargetDependency */,
+			);
+			name = CodeJamTests;
+			productName = CodeJamTests;
+			productReference = 406F2B1520C055C5003F5689 /* CodeJamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		406F2B1F20C055C5003F5689 /* CodeJamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 406F2B2F20C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJamUITests" */;
+			buildPhases = (
+				406F2B1C20C055C5003F5689 /* Sources */,
+				406F2B1D20C055C5003F5689 /* Frameworks */,
+				406F2B1E20C055C5003F5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				406F2B2220C055C5003F5689 /* PBXTargetDependency */,
+			);
+			name = CodeJamUITests;
+			productName = CodeJamUITests;
+			productReference = 406F2B2020C055C5003F5689 /* CodeJamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		406F2AF520C055C4003F5689 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Lesha Elin";
+				TargetAttributes = {
+					406F2AFC20C055C4003F5689 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					406F2B1420C055C5003F5689 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 406F2AFC20C055C4003F5689;
+					};
+					406F2B1F20C055C5003F5689 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 406F2AFC20C055C4003F5689;
+					};
+				};
+			};
+			buildConfigurationList = 406F2AF820C055C4003F5689 /* Build configuration list for PBXProject "CodeJam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 406F2AF420C055C4003F5689;
+			productRefGroup = 406F2AFE20C055C4003F5689 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				406F2AFC20C055C4003F5689 /* CodeJam */,
+				406F2B1420C055C5003F5689 /* CodeJamTests */,
+				406F2B1F20C055C5003F5689 /* CodeJamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		406F2AFB20C055C4003F5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				406F2B0D20C055C5003F5689 /* LaunchScreen.storyboard in Resources */,
+				406F2B0A20C055C5003F5689 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1320C055C5003F5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1E20C055C5003F5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		406F2AF920C055C4003F5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				406F2B1020C055C5003F5689 /* main.m in Sources */,
+				406F2B3420C055F0003F5689 /* StartController.m in Sources */,
+				406F2B0220C055C4003F5689 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1120C055C5003F5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				406F2B1A20C055C5003F5689 /* CodeJamTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		406F2B1C20C055C5003F5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				406F2B2520C055C5003F5689 /* CodeJamUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		406F2B1720C055C5003F5689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 406F2AFC20C055C4003F5689 /* CodeJam */;
+			targetProxy = 406F2B1620C055C5003F5689 /* PBXContainerItemProxy */;
+		};
+		406F2B2220C055C5003F5689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 406F2AFC20C055C4003F5689 /* CodeJam */;
+			targetProxy = 406F2B2120C055C5003F5689 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		406F2B0B20C055C5003F5689 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				406F2B0C20C055C5003F5689 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		406F2B2720C055C5003F5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		406F2B2820C055C5003F5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		406F2B2A20C055C5003F5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		406F2B2B20C055C5003F5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		406F2B2D20C055C5003F5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeJam.app/CodeJam";
+			};
+			name = Debug;
+		};
+		406F2B2E20C055C5003F5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeJam.app/CodeJam";
+			};
+			name = Release;
+		};
+		406F2B3020C055C5003F5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CodeJam;
+			};
+			name = Debug;
+		};
+		406F2B3120C055C5003F5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JT9AGH6W6X;
+				INFOPLIST_FILE = CodeJamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = My.CodeJamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CodeJam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		406F2AF820C055C4003F5689 /* Build configuration list for PBXProject "CodeJam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				406F2B2720C055C5003F5689 /* Debug */,
+				406F2B2820C055C5003F5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		406F2B2920C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				406F2B2A20C055C5003F5689 /* Debug */,
+				406F2B2B20C055C5003F5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		406F2B2C20C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				406F2B2D20C055C5003F5689 /* Debug */,
+				406F2B2E20C055C5003F5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		406F2B2F20C055C5003F5689 /* Build configuration list for PBXNativeTarget "CodeJamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				406F2B3020C055C5003F5689 /* Debug */,
+				406F2B3120C055C5003F5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 406F2AF520C055C4003F5689 /* Project object */;
+}
