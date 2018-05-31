@@ -344,6 +344,7 @@
             [self.downloadAreaTwo addSubview:imageHolder];
         });
     });
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/fd499c27-b491-49c3-b69c-2fa3c9911bddDevOps_training.png"];
         NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
@@ -355,6 +356,7 @@
             [self.downloadAreaThree addSubview:imageHolder];
         });
     });
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/6224255d-5405-4167-a80d-faad8c9c8d5fJava_training.png"];
         NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
@@ -366,6 +368,7 @@
             [self.downloadAreaFour addSubview:imageHolder];
         });
     });
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/de4b5b93-17e9-46e7-be88-1fac47be137aTest%20Automation_training.png"];
         NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
@@ -377,6 +380,7 @@
             [self.downloadAreaFive addSubview:imageHolder];
         });
     });
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/f0c0150c-b28a-4e33-96de-3ab5c09b9807BI_training.png"];
         NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
@@ -391,14 +395,37 @@
    
 }
 
+- (void) refresh:(id)sender {
+    
+   NSArray *downloadArea = [self.downloadArea subviews];
+    for (UIView *delete in downloadArea) {
+        [delete removeFromSuperview];
+    }
+    NSArray *downloadAreaTwo = [self.downloadAreaTwo subviews];
+    for (UIView *delete in downloadAreaTwo) {
+        [delete removeFromSuperview];
+    }
+    NSArray *downloadAreaThree = [self.downloadAreaThree subviews];
+    for (UIView *delete in downloadAreaThree) {
+        [delete removeFromSuperview];
+    }
+    NSArray *downloadAreaFour = [self.downloadAreaFour subviews];
+    for (UIView *delete in downloadAreaFour) {
+        [delete removeFromSuperview];
+    }
+    NSArray *downloadAreaFive = [self.downloadAreaFive subviews];
+    for (UIView *delete in downloadAreaFive) {
+        [delete removeFromSuperview];
+    }
+    NSArray *downloadAreaSix = [self.downloadAreaSix subviews];
+    for (UIView *delete in downloadAreaSix) {
+        [delete removeFromSuperview];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
-- (void) refresh:(id)sender
-{
-    //refresh method soon
-}
+
 @end
 
