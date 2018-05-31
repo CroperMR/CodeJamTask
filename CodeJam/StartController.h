@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppDelegate.m
 //  CodeJam
 //
 //  Created by LESHA on 5/31/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface StartController : UIViewController
 
 @end
-
