@@ -13,7 +13,7 @@
 		406F2B1020C055C5003F5689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B0F20C055C5003F5689 /* main.m */; };
 		406F2B1A20C055C5003F5689 /* CodeJamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B1920C055C5003F5689 /* CodeJamTests.m */; };
 		406F2B2520C055C5003F5689 /* CodeJamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B2420C055C5003F5689 /* CodeJamUITests.m */; };
-		406F2B3420C055F0003F5689 /* StartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B3220C055EF003F5689 /* StartController.m */; };
+		406F2B3A20C081BD003F5689 /* StartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F2B3820C081BD003F5689 /* StartController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 		406F2B2020C055C5003F5689 /* CodeJamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeJamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		406F2B2420C055C5003F5689 /* CodeJamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeJamUITests.m; sourceTree = "<group>"; };
 		406F2B2620C055C5003F5689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		406F2B3220C055EF003F5689 /* StartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartController.m; path = ../../../Documents/DEV/WaterPipes/WaterPipes/Controllers/StartController.m; sourceTree = "<group>"; };
-		406F2B3320C055EF003F5689 /* StartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartController.h; path = ../../../Documents/DEV/WaterPipes/WaterPipes/Controllers/StartController.h; sourceTree = "<group>"; };
+		406F2B3820C081BD003F5689 /* StartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartController.m; sourceTree = "<group>"; };
+		406F2B3920C081BD003F5689 /* StartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 			children = (
 				406F2B0020C055C4003F5689 /* AppDelegate.h */,
 				406F2B0120C055C4003F5689 /* AppDelegate.m */,
-				406F2B3320C055EF003F5689 /* StartController.h */,
-				406F2B3220C055EF003F5689 /* StartController.m */,
+				406F2B3920C081BD003F5689 /* StartController.h */,
+				406F2B3820C081BD003F5689 /* StartController.m */,
 				406F2B0920C055C5003F5689 /* Assets.xcassets */,
 				406F2B0B20C055C5003F5689 /* LaunchScreen.storyboard */,
 				406F2B0E20C055C5003F5689 /* Info.plist */,
@@ -259,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				406F2B1020C055C5003F5689 /* main.m in Sources */,
-				406F2B3420C055F0003F5689 /* StartController.m in Sources */,
+				406F2B3A20C081BD003F5689 /* StartController.m in Sources */,
 				406F2B0220C055C4003F5689 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
