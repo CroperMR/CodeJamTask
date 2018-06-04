@@ -19,6 +19,9 @@
 @property (weak, nonatomic) UIImageView *downloadAreaFive;
 @property (weak, nonatomic) UIImageView *downloadAreaSix;
 
+@property (nonatomic, retain) NSArray<UIImageView*> *imageViewArray;
+@property (nonatomic, retain) NSMutableArray<UIImage*> *images;
+
 - (void)views;
 - (void)startDownload;
 
@@ -27,6 +30,7 @@
 @implementation StartController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setTitle:@"Download Controller"];
     
@@ -37,19 +41,20 @@
     startButton.layer.cornerRadius = 10;
     startButton.clipsToBounds = YES;
     startButton.frame = frame;
-    [startButton setCenter:CGPointMake([[self view] center].x -70 , [[self view] center].y +50)];
+    [startButton setCenter:CGPointMake([[self view] center].x -70 , [[self view] center].y +140)];
     [startButton setTitle:@"Download images" forState:UIControlStateNormal];
     [startButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [startButton setBackgroundColor:naivyBlue];
     [startButton addTarget:self action:@selector(startDownload) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: startButton];
     
+    
     UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     refreshButton.layer.cornerRadius = 10;
     refreshButton.clipsToBounds = YES;
     refreshButton.frame = frame;
-    [refreshButton setCenter:CGPointMake([[self view] center].x + 70, [[self view] center].y +50)];
-    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+    [refreshButton setCenter:CGPointMake([[self view] center].x + 70, [[self view] center].y +140)];
+    [refreshButton setTitle:@"Clear" forState:UIControlStateNormal];
     [refreshButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [refreshButton setBackgroundColor:naivyBlue];
     [refreshButton addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,20 +94,11 @@
     self.downloadAreaThree.layer.cornerRadius = 10.0;
     self.downloadAreaThree.contentMode = UIViewContentModeScaleAspectFit;
     
-    self.downloadAreaFour = [[[UIImageView alloc] init] autorelease];
-    self.downloadAreaFour.backgroundColor = [UIColor clearColor];
-    self.downloadAreaFour.layer.cornerRadius = 10.0;
-    self.downloadAreaFour.contentMode = UIViewContentModeScaleAspectFit;
-    
-    self.downloadAreaFive = [[[UIImageView alloc] init] autorelease];
-    self.downloadAreaFive.backgroundColor = [UIColor clearColor];
-    self.downloadAreaFive.layer.cornerRadius = 10.0;
-    self.downloadAreaFive.contentMode = UIViewContentModeScaleAspectFit;
-    
-    self.downloadAreaSix = [[[UIImageView alloc] init] autorelease];
-    self.downloadAreaSix.backgroundColor = [UIColor clearColor];
-    self.downloadAreaSix.layer.cornerRadius = 10.0;
-    self.downloadAreaSix.contentMode = UIViewContentModeScaleAspectFit;
+    int  cellHeight = self.view.bounds.size.width / 4;
+    int  offset = self.view.bounds.size.width / 12;
+    self.downloadAreaFour = [[[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - 3*cellHeight/2 - offset, self.view.bounds.size.height - cellHeight - offset, cellHeight, cellHeight)]autorelease];
+    self.downloadAreaFive = [[[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - cellHeight/2, self.view.bounds.size.height - cellHeight - offset, cellHeight, cellHeight)] autorelease];
+    self.downloadAreaSix = [[[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 + cellHeight/2 + offset, self.view.bounds.size.height - cellHeight - offset, cellHeight, cellHeight)]autorelease];
     
     [self.view addSubview:self.downloadArea];
     self.downloadArea.translatesAutoresizingMaskIntoConstraints = NO;
@@ -110,13 +106,10 @@
     self.downloadAreaTwo.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.downloadAreaThree];
     self.downloadAreaThree.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.downloadAreaFour];
-    self.downloadAreaFour.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.downloadAreaFive];
-    self.downloadAreaFive.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.downloadAreaSix];
-    self.downloadAreaSix.translatesAutoresizingMaskIntoConstraints = NO;
-    
+    self.imageViewArray = [[[NSArray alloc] initWithObjects:self.downloadAreaFour, self.downloadAreaFive, self.downloadAreaSix, nil] autorelease];
+    for (UIImageView* imageView in self.imageViewArray) {
+        [self.view addSubview:imageView];
+    }
     
     NSLayoutConstraint *leftImageViewConstraint = [NSLayoutConstraint constraintWithItem:self.downloadArea
                                                                                attribute:NSLayoutAttributeLeft
@@ -137,7 +130,7 @@
                                                                                 relatedBy:NSLayoutRelationEqual
                                                                                    toItem:center
                                                                                 attribute:NSLayoutAttributeRight
-                                                                               multiplier:1.0
+                                                                               multiplier:3.0
                                                                                  constant:0.0];
     NSLayoutConstraint *heightImageViewConstraint = [NSLayoutConstraint constraintWithItem:self.downloadArea
                                                                                  attribute:NSLayoutAttributeHeight
@@ -145,7 +138,7 @@
                                                                                     toItem:nil
                                                                                  attribute:NSLayoutAttributeNotAnAttribute
                                                                                 multiplier:1.0
-                                                                                  constant:100.0];
+                                                                                  constant:90.0];
     [self.view addConstraints:@[leftImageViewConstraint,
                                 topImageViewConstraint,
                                 rightImageViewConstraint,
@@ -157,20 +150,20 @@
                                                                                    toItem:center
                                                                                 attribute:NSLayoutAttributeLeft
                                                                                multiplier:1.0
-                                                                                 constant:0.0];
+                                                                                 constant:-150.0];
     NSLayoutConstraint *topImageViewConstraint2 = [NSLayoutConstraint constraintWithItem:self.downloadAreaTwo
                                                                                attribute:NSLayoutAttributeTop
                                                                                relatedBy:NSLayoutRelationEqual
                                                                                   toItem:center
                                                                                attribute:NSLayoutAttributeTop
                                                                               multiplier:1.0
-                                                                                constant:-200.0];
+                                                                                constant:0.0];
     NSLayoutConstraint *rightImageViewConstraint2 = [NSLayoutConstraint constraintWithItem:self.downloadAreaTwo
                                                                                  attribute:NSLayoutAttributeRight
                                                                                  relatedBy:NSLayoutRelationEqual
                                                                                     toItem:center
                                                                                  attribute:NSLayoutAttributeRight
-                                                                                multiplier:1.0
+                                                                                multiplier:3.0
                                                                                   constant:-10.0];
     NSLayoutConstraint *heightImageViewConstrain2 = [NSLayoutConstraint constraintWithItem:self.downloadAreaTwo
                                                                                  attribute:NSLayoutAttributeHeight
@@ -178,7 +171,7 @@
                                                                                     toItem:nil
                                                                                  attribute:NSLayoutAttributeNotAnAttribute
                                                                                 multiplier:1.0
-                                                                                  constant:100.0];
+                                                                                  constant:90.0];
     [self.view addConstraints:@[leftImageViewConstraint2,
                                 topImageViewConstraint2,
                                 rightImageViewConstraint2,
@@ -197,13 +190,13 @@
                                                                                   toItem:center
                                                                                attribute:NSLayoutAttributeTop
                                                                               multiplier:1.0
-                                                                                constant:-80.0];
+                                                                                constant:-100.0];
     NSLayoutConstraint *rightImageViewConstraint3 = [NSLayoutConstraint constraintWithItem:self.downloadAreaThree
                                                                                  attribute:NSLayoutAttributeRight
                                                                                  relatedBy:NSLayoutRelationEqual
                                                                                     toItem:center
                                                                                  attribute:NSLayoutAttributeRight
-                                                                                multiplier:1.0
+                                                                                multiplier:3.0
                                                                                   constant:0.0];
     NSLayoutConstraint *heightImageViewConstrain3 = [NSLayoutConstraint constraintWithItem:self.downloadAreaThree
                                                                                  attribute:NSLayoutAttributeHeight
@@ -211,193 +204,18 @@
                                                                                     toItem:nil
                                                                                  attribute:NSLayoutAttributeNotAnAttribute
                                                                                 multiplier:1.0
-                                                                                  constant:100.0];
+                                                                                  constant:90.0];
     [self.view addConstraints:@[leftImageViewConstraint3,
                                 topImageViewConstraint3,
                                 rightImageViewConstraint3,
                                 heightImageViewConstrain3]];
     
-    NSLayoutConstraint *leftImageViewConstraint4 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFour
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                                relatedBy:NSLayoutRelationEqual
-                                                                                   toItem:center
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                               multiplier:1.0
-                                                                                 constant:0.0];
-    NSLayoutConstraint *topImageViewConstraint4 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFour
-                                                                               attribute:NSLayoutAttributeTop
-                                                                               relatedBy:NSLayoutRelationEqual
-                                                                                  toItem:center
-                                                                               attribute:NSLayoutAttributeTop
-                                                                              multiplier:1.0
-                                                                                constant:-80.0];
-    NSLayoutConstraint *rightImageViewConstraint4 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFour
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:center
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                multiplier:1.0
-                                                                                  constant:-10.0];
-    NSLayoutConstraint *heightImageViewConstrain4 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFour
-                                                                                 attribute:NSLayoutAttributeHeight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:nil
-                                                                                 attribute:NSLayoutAttributeNotAnAttribute
-                                                                                multiplier:1.0
-                                                                                  constant:100.0];
-    [self.view addConstraints:@[leftImageViewConstraint4,
-                                topImageViewConstraint4,
-                                rightImageViewConstraint4,
-                                heightImageViewConstrain4]];
-    
-    NSLayoutConstraint *leftImageViewConstraint5 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFive
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                                relatedBy:NSLayoutRelationEqual
-                                                                                   toItem:center
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                               multiplier:1.0
-                                                                                 constant:0.0];
-    NSLayoutConstraint *topImageViewConstraint5 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFive
-                                                                               attribute:NSLayoutAttributeTop
-                                                                               relatedBy:NSLayoutRelationEqual
-                                                                                  toItem:center
-                                                                               attribute:NSLayoutAttributeTop
-                                                                              multiplier:1.0
-                                                                                constant:80.0];
-    NSLayoutConstraint *rightImageViewConstraint5 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFive
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:center
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                multiplier:1.0
-                                                                                  constant:-10.0];
-    NSLayoutConstraint *heightImageViewConstrain5 = [NSLayoutConstraint constraintWithItem:self.downloadAreaFive
-                                                                                 attribute:NSLayoutAttributeHeight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:nil
-                                                                                 attribute:NSLayoutAttributeNotAnAttribute
-                                                                                multiplier:1.0
-                                                                                  constant:100.0];
-    [self.view addConstraints:@[leftImageViewConstraint5,
-                                topImageViewConstraint5,
-                                rightImageViewConstraint5,
-                                heightImageViewConstrain5]];
-    
-    
-    NSLayoutConstraint *leftImageViewConstraint6 = [NSLayoutConstraint constraintWithItem:self.downloadAreaSix
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                                relatedBy:NSLayoutRelationEqual
-                                                                                   toItem:center
-                                                                                attribute:NSLayoutAttributeLeft
-                                                                               multiplier:1.0
-                                                                                 constant:-150.0];
-    NSLayoutConstraint *topImageViewConstraint6 = [NSLayoutConstraint constraintWithItem:self.downloadAreaSix
-                                                                               attribute:NSLayoutAttributeTop
-                                                                               relatedBy:NSLayoutRelationEqual
-                                                                                  toItem:center
-                                                                               attribute:NSLayoutAttributeTop
-                                                                              multiplier:1.0
-                                                                                constant:80.0];
-    NSLayoutConstraint *rightImageViewConstraint6 = [NSLayoutConstraint constraintWithItem:self.downloadAreaSix
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:center
-                                                                                 attribute:NSLayoutAttributeRight
-                                                                                multiplier:1.0
-                                                                                  constant:0.0];
-    NSLayoutConstraint *heightImageViewConstrain6 = [NSLayoutConstraint constraintWithItem:self.downloadAreaSix
-                                                                                 attribute:NSLayoutAttributeHeight
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:nil
-                                                                                 attribute:NSLayoutAttributeNotAnAttribute
-                                                                                multiplier:1.0
-                                                                                  constant:100.0];
-    [self.view addConstraints:@[leftImageViewConstraint6,
-                                topImageViewConstraint6,
-                                rightImageViewConstraint6,
-                                heightImageViewConstrain6]];
     [pool release];
 }
 
 - (void)startDownload {
-   
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://s.dou.ua/img/announces/epam-university-840_EvEN7E8.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 160, 95)] autorelease];
-            imageHolder.image = image;
-            [self.downloadArea addSubview:imageHolder];
-        });
-    });
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://careers.epam.by/content/dam/epam/by/new-images/Training-Updated-369.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
-            imageHolder.image = image;
-            [self.downloadAreaTwo addSubview:imageHolder];
-        });
-    });
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/fd499c27-b491-49c3-b69c-2fa3c9911bddDevOps_training.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
-            imageHolder.image = image;
-            [self.downloadAreaThree addSubview:imageHolder];
-        });
-    });
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/6224255d-5405-4167-a80d-faad8c9c8d5fJava_training.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
-            imageHolder.image = image;
-            [self.downloadAreaFour addSubview:imageHolder];
-        });
-    });
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/de4b5b93-17e9-46e7-be88-1fac47be137aTest%20Automation_training.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
-            imageHolder.image = image;
-            [self.downloadAreaFive addSubview:imageHolder];
-        });
-    });
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *imageUrl = [NSURL URLWithString:@"https://training.by/Content/images/BigLogo/f0c0150c-b28a-4e33-96de-3ab5c09b9807BI_training.png"];
-        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageDate];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
-            imageHolder.image = image;
-            [self.downloadAreaSix addSubview:imageHolder];
-        });
-    });
-   
-}
-
-- (void) refresh:(id)sender {
-    
-   NSArray *downloadArea = [self.downloadArea subviews];
+    NSArray *downloadArea = [self.downloadArea subviews];
     for (UIView *delete in downloadArea) {
         [delete removeFromSuperview];
     }
@@ -409,22 +227,152 @@
     for (UIView *delete in downloadAreaThree) {
         [delete removeFromSuperview];
     }
-    NSArray *downloadAreaFour = [self.downloadAreaFour subviews];
-    for (UIView *delete in downloadAreaFour) {
+    for (UIImageView *imageView in self.imageViewArray) {
+        imageView.image = nil;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *imageUrl = [NSURL URLWithString:@"https://s.dou.ua/img/announces/epam-university-840_EvEN7E8.png"];
+        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage *image = [UIImage imageWithData:imageDate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(-10, 0, 160, 95)] autorelease];
+            imageHolder.image = image;
+            [self.downloadArea addSubview:imageHolder];
+            UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(140, 40, 250, 20)] autorelease];
+            NSString *labelText = imageUrl.absoluteString;
+            titleLabel.translatesAutoresizingMaskIntoConstraints = YES;
+            titleLabel.attributedText = [[[NSAttributedString alloc] initWithString:labelText attributes:@{ NSStrokeColorAttributeName : [UIColor blackColor], NSForegroundColorAttributeName : [UIColor blackColor], NSStrokeWidthAttributeName : @-3.5 }] autorelease];
+            [titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:15]];
+            [self.downloadArea addSubview:titleLabel];
+            
+        });
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *imageUrl = [NSURL URLWithString:@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5J4dDpaYdsDcNdQIltnPkCevKlkt0PCYi2cLb7ZUKGRIXjmaI_w"];
+        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage *image = [UIImage imageWithData:imageDate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 100, 100)] autorelease];
+            imageHolder.image = image;
+            [self.downloadAreaTwo addSubview:imageHolder];
+            UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(140, 40, 250, 20)] autorelease];
+            NSString *labelText = imageUrl.absoluteString;
+            titleLabel.translatesAutoresizingMaskIntoConstraints = YES;
+            titleLabel.attributedText = [[[NSAttributedString alloc] initWithString:labelText attributes:@{ NSStrokeColorAttributeName : [UIColor blackColor], NSForegroundColorAttributeName : [UIColor blackColor], NSStrokeWidthAttributeName : @-3.5 }] autorelease];
+            [titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:15]];
+            [self.downloadAreaTwo addSubview:titleLabel];
+        });
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *imageUrl = [NSURL URLWithString:@"https://i.io.ua/img_su/large/0237/56/02375685_n1.jpg"];
+        NSData *imageDate = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage *image = [UIImage imageWithData:imageDate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *imageHolder = [[[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 95, 95)] autorelease];
+            imageHolder.image = image;
+            [self.downloadAreaThree addSubview:imageHolder];
+            UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(140, 40, 250, 20)] autorelease];
+            NSString *labelText = imageUrl.absoluteString;
+            titleLabel.translatesAutoresizingMaskIntoConstraints = YES;
+            titleLabel.attributedText = [[[NSAttributedString alloc] initWithString:labelText attributes:@{ NSStrokeColorAttributeName : [UIColor blackColor], NSForegroundColorAttributeName : [UIColor blackColor], NSStrokeWidthAttributeName : @-3.5 }] autorelease];
+            [titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:15]];
+            [self.downloadAreaThree addSubview:titleLabel];
+        });
+    });
+    
+    NSMutableArray<UIImage*> *images = [NSMutableArray array];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_async(group, queue, ^{
+        NSURL *imageUrl4 = [NSURL URLWithString:@"https://s-media-cache-ak0.pinimg.com/originals/4c/11/21/4c11216b99410510dacdf8c68b4e12fd.jpg"];
+        NSData *imageDate4 = [NSData dataWithContentsOfURL:imageUrl4];
+        
+        if (imageDate4 != nil) {
+            [images addObject:[UIImage imageWithData:imageDate4]];
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentAlertControllerWithTitle:@"Error" andMessage:@"Check your connection"];
+            });
+        }
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        NSURL *imageUrl5 = [NSURL URLWithString:@"https://i.pinimg.com/originals/21/48/a7/2148a73c93ca24057e10d7d66c3aa1b9.jpg"];
+        NSData *imageDate5 = [NSData dataWithContentsOfURL:imageUrl5];
+        
+        if (imageDate5 != nil) {
+            [images addObject:[UIImage imageWithData:imageDate5]];
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentAlertControllerWithTitle:@"Error" andMessage:@"Check your connection"];
+            });
+        }
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        NSURL *imageUrl6 = [NSURL URLWithString:@"https://i.pinimg.com/originals/6a/11/a8/6a11a884abbe469d87a797ced5d1b7cc.jpg"];
+        NSData *imageDate6 = [NSData dataWithContentsOfURL:imageUrl6];
+        
+        if (imageDate6 != nil) {
+            [images addObject:[UIImage imageWithData:imageDate6]];
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentAlertControllerWithTitle:@"Error" andMessage:@"Check your connection"];
+            });
+        }
+        
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [images enumerateObjectsUsingBlock:^(UIImage * _Nonnull image, NSUInteger idx, BOOL * _Nonnull stop) {
+            self.imageViewArray[idx].image = image;
+        }];
+    });
+    dispatch_release(group);
+}
+
+- (void) refresh:(id)sender {
+    
+    NSArray *downloadArea = [self.downloadArea subviews];
+    for (UIView *delete in downloadArea) {
         [delete removeFromSuperview];
     }
-    NSArray *downloadAreaFive = [self.downloadAreaFive subviews];
-    for (UIView *delete in downloadAreaFive) {
+    NSArray *downloadAreaTwo = [self.downloadAreaTwo subviews];
+    for (UIView *delete in downloadAreaTwo) {
         [delete removeFromSuperview];
     }
-    NSArray *downloadAreaSix = [self.downloadAreaSix subviews];
-    for (UIView *delete in downloadAreaSix) {
+    NSArray *downloadAreaThree = [self.downloadAreaThree subviews];
+    for (UIView *delete in downloadAreaThree) {
         [delete removeFromSuperview];
     }
+    for (UIImageView *imageView in self.imageViewArray) {
+        imageView.image = nil;
+    }
+    
+}
+- (void)presentAlertControllerWithTitle: (NSString*) title andMessage: (NSString*) message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (void)dealloc
+{
+    [_images release];
+    [_imageViewArray release];
+    [super dealloc];
 }
 
 @end
